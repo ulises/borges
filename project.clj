@@ -1,4 +1,4 @@
-(defproject borges "0.1.1"
+(defproject borges "0.1.2"
   :description "An erlang binary term encoder/decoder"
 
   :url "http://github.com/ulises/borges"
@@ -17,7 +17,7 @@
   :scm {:name "git"
         :url "https://github.com/ulises/borges"}
 
-  :dependencies [[org.clojure/clojure "1.5.1"]
+  :dependencies [[org.clojure/clojure "1.6.0"]
                  [bytebuffer "0.2.0"]]
 
   :global-vars {*warn-on-reflection* true}
