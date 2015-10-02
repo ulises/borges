@@ -59,7 +59,10 @@
   ;; in clojure there's no concept of improper list. A list is a list
   ;; is a list.
   (testing "encoding of a non-empty list"
-    (is (= '(256 257 258) (decode (encode '(256 257 258)))))))
+    (is (= '(256 257 258) (decode (encode '(256 257 258))))))
+
+  (testing "encoding of a nested list"
+    (is (= '((1 (2 3)) (4 5 6)) (decode (encode '((1 (2 3)) (4 5 6))))))))
 
 (deftest encode-bignums
   (testing "encoding a positive small bignum"

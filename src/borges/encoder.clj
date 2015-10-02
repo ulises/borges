@@ -118,11 +118,8 @@
 
 (defmethod encode* clojure.lang.PersistentList
   [^clojure.lang.PersistentList l]
-  (let [len     (count l)
-        string? (erlang-string? l)]
-    (if string?
-      (encode-string len l)
-      (encode-list len l))))
+  (let [len (count l)]
+    (encode-list len l)))
 
 (defmethod encode* clojure.lang.PersistentVector$ChunkedSeq
   [^clojure.lang.PersistentVector$ChunkedSeq chunked-seq]
