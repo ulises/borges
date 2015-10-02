@@ -50,7 +50,7 @@
 
 (deftest decode-strings
   (testing "decoding a string"
-    (is (= '(102 111 111 32 98 97 114 32 98 97 122)
+    (is (= "foo bar baz"
            (decode (file->bb "string.bin")))))
 
   (testing "decoding empty string - nil is returned"

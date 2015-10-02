@@ -48,9 +48,7 @@
 
 (deftest encode-strings
   (testing "encoding a string"
-    (is (= '(102 111 111 32 98 97 114 32 98 97 122)
-           (decode (encode '(102 111 111 32 98 97 114 32 98 97 122)))))
-    (is (= '(97 98 99) (decode (encode "abc")))))
+    (is (= "abc" (decode (encode "abc")))))
 
   (testing "encoding empty string"
     (is (= nil (decode (encode '()))))))

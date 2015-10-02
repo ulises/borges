@@ -75,7 +75,7 @@
 (defmethod decode* erlang-string
   [^ByteBuffer payload]
   (let [len (take-ushort payload)]
-    (doall (map (fn [_] (take-byte payload)) (range len)))))
+    (apply str (repeatedly len #(char (take-byte payload))))))
 
 (defmethod decode* erlang-list
   [^ByteBuffer payload]
