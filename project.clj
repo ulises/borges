@@ -8,9 +8,11 @@
             :distribution :repo}
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
-                                     :creds :gpg}]
+                                     :creds :gpg
+                                     :sign-releases false}]
                         ["snapshots" {:url "https://clojars.org/repo"
-                                      :creds :gpg}]]
+                                      :creds :gpg
+                                      :sign-releases false}]]
 
   :scm {:name "git"
         :url "https://github.com/ulises/borges"}
