@@ -1,4 +1,4 @@
-(defproject borges "0.1.2"
+(defproject borges "0.1.3"
   :description "An erlang binary term encoder/decoder"
 
   :url "http://github.com/ulises/borges"
@@ -11,8 +11,6 @@
                                      :creds :gpg}]
                         ["snapshots" {:url "https://clojars.org/repo"
                                       :creds :gpg}]]
-
-  :signing {:gpg-key "0E96E893"}
 
   :scm {:name "git"
         :url "https://github.com/ulises/borges"}
