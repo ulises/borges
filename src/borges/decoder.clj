@@ -20,6 +20,7 @@
    [bytebuffer.buff :refer :all]
    [borges.const :refer :all]
    [borges.type :as t]
+   [borges.encoder :refer [erlang-string?]]
    [borges.decoder-helpers :refer [take-magnitude decode-bignum]]))
 
 (declare decode*)
@@ -74,8 +75,12 @@
 
 (defmethod decode* erlang-string
   [^ByteBuffer payload]
-  (let [len (take-ushort payload)]
-    (apply str (repeatedly len #(char (take-byte payload))))))
+  (let [len  (take-ushort payload)
+        l    (.slice payload)
+        data (repeatedly len #(take-byte l))]
+    (if (erlang-string? data)
+      (apply str (map char data))
+      data)))
 
 (defmethod decode* erlang-list
   [^ByteBuffer payload]

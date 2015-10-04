@@ -105,8 +105,8 @@
 
 (defmethod encode* nil [_] encode-nil)
 
-(defn- erlang-string? [l]
-  (every? #(< 0 % 255) l))
+(defn erlang-string? [l]
+  (every? #(< 31 % 256) l))
 
 (defn- encode-string [len s]
   [["b" const/erlang-string]
