@@ -96,7 +96,9 @@
 
 (deftest decode-map
   (testing "decoding maps"
-    (is (= {'foo 'bar} (decode (file->bb "map.bin"))))))
+    (is (= {'foo 'bar} (decode (file->bb "map.bin")))))
+  (testing "decoding maps 1"
+    (is (= {1.2 -10 "foo" 'bar 1 '(1 2 3)} (decode (file->bb "map1.bin"))))))
 
 (deftest decode-binary
   (testing "decoding binaries"

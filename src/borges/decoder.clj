@@ -76,8 +76,7 @@
 (defmethod decode* erlang-string
   [^ByteBuffer payload]
   (let [len  (take-ushort payload)
-        l    (.slice payload)
-        data (repeatedly len #(take-byte l))]
+        data (into [] (repeatedly len #(take-byte payload)))]
     (if (erlang-string? data)
       (apply str (map char data))
       data)))
@@ -102,7 +101,7 @@
   [^ByteBuffer payload]
   (let [len      (take-ushort payload)
         node     (decode* payload)
-        id       (map (fn [_] (take-uint payload)) (range len))
+        id       (repeatedly len (fn [] (take-uint payload)))
         creation (take-ubyte payload)]
     (t/reference node (reverse id) creation)))
 
@@ -117,8 +116,8 @@
 (defmethod decode* erlang-map
   [^ByteBuffer payload]
   (let [arity (take-uint payload)
-        pairs (map (fn [_] (decode* payload)) (range (* 2 arity)))]
-    (apply hash-map pairs)))
+        pairs (into [] (repeatedly (* 2 arity) (fn [] (decode* payload))))]
+      (apply hash-map pairs)))
 
 (defmethod decode* erlang-binary
   [^ByteBuffer payload]
