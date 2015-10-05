@@ -1,4 +1,4 @@
-(defproject borges "0.1.4"
+(defproject borges "0.1.5"
   :description "An erlang binary term encoder/decoder"
 
   :url "http://github.com/ulises/borges"
