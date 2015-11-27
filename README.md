@@ -9,13 +9,13 @@ Borges is an erlang binary term encoder/decoder.
 Both the encoder and decoder namespaces provide a main function used
 for encoding and decoding.
 
-Include `[borges "0.1.0"]` in your project.clj if you're using leiningen. Alternatively, add
+Include `[borges "0.1.6"]` in your project.clj if you're using leiningen. Alternatively, add
 
 ````
     <dependency>
         <groupId>borges</groupId>
         <artifactId>borges</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.6</version>
     </dependency>
 ````
 
